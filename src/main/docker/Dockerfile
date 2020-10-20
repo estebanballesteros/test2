@@ -16,6 +16,6 @@ ENTRYPOINT ["./entrypoint.sh"]
 
 EXPOSE 8081
 
-ADD *.war
+ADD target/*.war
 
 
