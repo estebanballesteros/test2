@@ -16,6 +16,7 @@ ENTRYPOINT ["./entrypoint.sh"]
 
 EXPOSE 8081
 
-ADD target/*.war
+ADD target/*.war /jhipster-registry.war
+
 
 
