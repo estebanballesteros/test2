@@ -8,7 +8,7 @@ ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
 RUN adduser -D -s /bin/sh jhipster
 WORKDIR /home/jhipster
 
-ADD entrypoint.sh entrypoint.sh
+ADD /src/main/docker/Dockerfile/entrypoint.sh entrypoint.sh
 RUN chmod 755 entrypoint.sh && chown jhipster:jhipster entrypoint.sh
 USER jhipster
 
