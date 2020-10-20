@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ClienteBase.
+    -->
+    <changeSet id="20190619155000-1" author="jhipster">
+
+        <addUniqueConstraint columnNames="dni"
+                             constraintName="unique_cliente_base_dni"
+                             tableName="cliente_base"/>
+
+    </changeSet>
+</databaseChangeLog>

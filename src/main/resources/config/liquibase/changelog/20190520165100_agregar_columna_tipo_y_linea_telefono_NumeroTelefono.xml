@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Agregar columna tipo y linea telefono
+    -->
+    <changeSet id="20190520165100-1" author="jhipster">
+      <addColumn tableName="numero_telefono">
+        <column name="tipo_telefono_id" type="bigint">
+          <constraints nullable="false"/>
+        </column>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="20190520165100-2" author="jhipster">
+      <addColumn tableName="numero_telefono">
+        <column name="cod_tabla_tipo_telefono" type="integer">
+            <constraints nullable="false" />
+        </column>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="20190520165100-3" author="jhipster">
+      <addColumn tableName="numero_telefono">
+        <column name="cod_item_tipo_telefono" type="integer">
+            <constraints nullable="false" />
+        </column>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="20190520165100-4" author="jhipster">
+      <addForeignKeyConstraint baseColumnNames="tipo_telefono_id"
+                               baseTableName="numero_telefono"
+                               constraintName="fk_numero_telefono_tipo_telefono_id"
+                               referencedColumnNames="id"
+                               referencedTableName="parametro"/>
+    </changeSet>
+
+    <changeSet id="20190520165100-5" author="jhipster">
+      <addColumn tableName="numero_telefono">
+        <column name="linea_telefono_id" type="bigint">
+          <constraints nullable="false"/>
+        </column>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="20190520165100-6" author="jhipster">
+      <addColumn tableName="numero_telefono">
+        <column name="cod_tabla_linea_telefono" type="integer">
+            <constraints nullable="false" />
+        </column>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="20190520165100-7" author="jhipster">
+      <addColumn tableName="numero_telefono">
+        <column name="cod_item_linea_telefono" type="integer">
+            <constraints nullable="false" />
+        </column>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="20190520165100-8" author="jhipster">
+      <addForeignKeyConstraint baseColumnNames="linea_telefono_id"
+                               baseTableName="numero_telefono"
+                               constraintName="fk_numero_telefono_linea_telefono_id"
+                               referencedColumnNames="id"
+                               referencedTableName="parametro"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Quitar columna genero y agregar relacion
+    -->
+    <changeSet id="20190522095800-1" author="jhipster">
+      <dropColumn tableName="cliente_completo"
+        columnName="genero" />
+    </changeSet>
+
+    <changeSet id="20190522095800-5" author="jhipster">
+      <addColumn tableName="cliente_completo">
+        <column name="genero_id" type="bigint">
+          <constraints nullable="true"/>
+        </column>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="20190522095800-10" author="jhipster">
+      <addColumn tableName="cliente_completo">
+        <column name="cod_tabla_genero" type="integer">
+            <constraints nullable="true" />
+        </column>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="20190522095800-15" author="jhipster">
+      <addColumn tableName="cliente_completo">
+        <column name="cod_item_genero" type="integer">
+            <constraints nullable="true" />
+        </column>
+      </addColumn>
+    </changeSet>
+
+    <changeSet id="20190522095800-20" author="jhipster">
+      <addForeignKeyConstraint baseColumnNames="genero_id"
+                               baseTableName="cliente_completo"
+                               constraintName="fk_cliente_completo_genero_id"
+                               referencedColumnNames="id"
+                               referencedTableName="parametro"/>
+    </changeSet>
+</databaseChangeLog>

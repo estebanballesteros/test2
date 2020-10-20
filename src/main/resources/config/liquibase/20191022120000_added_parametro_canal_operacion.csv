@@ -1,0 +1,6 @@
+id;codigo_tabla;codigo_item;descripcion_larga;descripcion_corta;grupo_1;grupo_2
+1047;19;0;Aplicacion Mobile;APP;NULL;NULL
+1048;19;1;Cajero ATM;ATM;NULL;NULL
+1049;19;2;BackOffice;BO;NULL;NULL
+1050;19;3;Portal Pagos;PP;NULL;NULL
+

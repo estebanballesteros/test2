@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Quitar columna linea telefono
+    -->
+
+    <changeSet id="20190611162600-0" author="jhipster">
+        <dropForeignKeyConstraint baseTableName="numero_telefono" constraintName="fk_numero_telefono_linea_telefono_id"/>
+    </changeSet>
+
+    <changeSet id="20190611162600-1" author="jhipster">
+        <dropColumn tableName="numero_telefono">
+            <column name="linea_telefono_id">
+            </column>
+        </dropColumn>
+    </changeSet>
+
+    <changeSet id="20190611162600-2" author="jhipster">
+        <dropColumn tableName="numero_telefono">
+            <column name="cod_tabla_linea_telefono">
+            </column>
+        </dropColumn>
+    </changeSet>
+
+    <changeSet id="20190611162600-3" author="jhipster">
+        <dropColumn tableName="numero_telefono">
+            <column name="cod_item_linea_telefono">
+            </column>
+        </dropColumn>
+    </changeSet>
+
+</databaseChangeLog>

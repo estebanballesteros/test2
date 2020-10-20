@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Agregar dni como not null, Eliminar alias como not null,Cambiar el tipo de dato del dni a String
+    -->
+    <changeSet id="2019052010200000-1" author="rtornello">
+        <addNotNullConstraint
+            columnDataType="bigint"
+            columnName="dni"
+            tableName="cliente_base"/>
+        <dropNotNullConstraint
+            columnDataType="varchar(255)"
+            columnName="alias"
+            tableName="cliente_base"/>
+        <modifyDataType
+            columnName="dni"
+            newDataType="varchar(255)"
+            tableName="cliente_base"/>
+
+    </changeSet>
+
+</databaseChangeLog>

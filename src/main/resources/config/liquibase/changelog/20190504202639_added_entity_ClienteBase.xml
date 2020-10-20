@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    
+    <property name="now" value="GETDATE()" dbms="mssql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity ClienteBase.
+    -->
+    <changeSet id="20190504202639-1" author="jhipster">
+        <createTable tableName="cliente_base">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="dni" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="id_usuario" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="alias" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fecha_registro" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fecha_baja" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nombre" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="apellido" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="origen_registro" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="cod_tabla_tipo_cliente" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="cod_item_tipo_cliente" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="cod_tabla_estado_cliente" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="cod_item_estado_cliente" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="cliente_completo_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_cliente_base_cliente_completo_id" />
+            </column>
+            <column name="tipo_cliente_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="cliente_base" columnName="fecha_registro" columnDataType="datetime"/>
+        <dropDefaultValue tableName="cliente_base" columnName="fecha_baja" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

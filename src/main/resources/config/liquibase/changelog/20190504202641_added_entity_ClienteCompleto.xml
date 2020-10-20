@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    
+    <property name="now" value="GETDATE()" dbms="mssql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity ClienteCompleto.
+    -->
+    <changeSet id="20190504202641-1" author="jhipster">
+        <createTable tableName="cliente_completo">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="fecha_registro" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fecha_baja" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fecha_nacimiento" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="razon_social" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="cuil_cuit" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="info_adicional" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="genero" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="pep" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="participa_fidelizar" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="cliente_completo" columnName="fecha_registro" columnDataType="datetime"/>
+        <dropDefaultValue tableName="cliente_completo" columnName="fecha_baja" columnDataType="datetime"/>
+        <dropDefaultValue tableName="cliente_completo" columnName="fecha_nacimiento" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

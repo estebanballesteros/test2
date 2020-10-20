@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190504202639_added_entity_ClienteBase.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190504202640_added_entity_Parametro.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190504202641_added_entity_ClienteCompleto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190504202642_added_entity_CorreoElectronico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190504202643_added_entity_NumeroTelefono.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190504202644_added_entity_Domicilio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190504202645_added_entity_EstadoClienteHistorico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190504202646_added_entity_AgendaDestinatario.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190504202639_added_entity_constraints_ClienteBase.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190504202642_added_entity_constraints_CorreoElectronico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190504202643_added_entity_constraints_NumeroTelefono.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190504202644_added_entity_constraints_Domicilio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190504202645_added_entity_constraints_EstadoClienteHistorico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190504202646_added_entity_constraints_AgendaDestinatario.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+
+    <include file="config/liquibase/changelog/20190507160800_modificar_columna_cuil_cuit_ClienteCompleto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190508201700_agregar_columna_telefono_ClienteBase.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/201905101230000_quitar_restricciones_ClienteBase.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/201905101234000_agregar_restricciones_ClienteCompleto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/201905181518000_agregar_columna_estado_cliente_id_ClienteBase.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/201905181518000_agregar_restricciones_ClienteBase.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/2019052010200000_modificar_columna_dni.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190520123200_quitar_columna_telefono_ClienteBase.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190520141300_agregar_columna_tipo_persona_id_ClienteCompleto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190520165100_agregar_columna_tipo_y_linea_telefono_NumeroTelefono.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190520171800_agregar_columna_nacionalidad_ClienteCompleto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190520173100_agregar_restriccion_nacionalidad.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190522095800_agregar_columna_genero_id_ClienteCompleto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190522103800_agregar_restriccion_genero.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190523134700_renombrar_columna_domicilio_id_Domicilio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/201905311300000_modificar_columna_fecha_nacimiento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190614112100-1_insertar_parametros.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190611162600_quitar_linea_telefono_y_restriccion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190610143400_agregar_columna_telefono_AgendaCliente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190621160500_agregar_columna_favoritos_AgendaCliente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/2019061915500000_added_entity_constraints_ClienteBase.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190903090000_agregar_apoderado.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/20190905123000_agregar_entidad_documento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190905130000_agregar_restriccion_documento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022120000_added_parametro_canal_operacion.xml" relativeToChangelogFile="false"/>
+</databaseChangeLog>

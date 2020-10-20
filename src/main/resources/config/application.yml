@@ -1,0 +1,186 @@
+# ===================================================================
+# Spring Boot configuration.
+#
+# This configuration will be overridden by the Spring profile you use,
+# for example application-dev.yml if you use the "dev" profile.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+eureka:
+    client:
+        enabled: true
+        healthcheck:
+            enabled: true
+        fetch-registry: true
+        register-with-eureka: true
+        instance-info-replication-interval-seconds: 10
+        registry-fetch-interval-seconds: 10
+    instance:
+        appname: gestionclientes
+        instanceId: gestionclientes:${spring.application.instance-id:${random.value}}
+        lease-renewal-interval-in-seconds: 5
+        lease-expiration-duration-in-seconds: 10
+        status-page-url-path: ${management.endpoints.web.base-path}/info
+        health-check-url-path: ${management.endpoints.web.base-path}/health
+        metadata-map:
+            zone: primary # This is needed for the load balancer
+            profile: ${spring.profiles.active}
+            version: ${info.project.version:}
+            git-version: ${git.commit.id.describe:}
+            git-commit: ${git.commit.id.abbrev:}
+            git-branch: ${git.branch:}
+ribbon:
+    eureka:
+        enabled: true
+feign:
+    hystrix:
+        enabled: true
+    client:
+        config:
+            default:
+                connectTimeout: 1000000
+                readTimeout: 1200000
+# See https://github.com/Netflix/Hystrix/wiki/Configuration
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    strategy: SEMAPHORE
+# See https://github.com/spring-cloud/spring-cloud-netflix/issues/1330
+                    thread:
+                        timeoutInMilliseconds: 1000000
+    shareSecurityContext: true
+
+management:
+    endpoints:
+        web:
+            base-path: /management
+            exposure:
+                include: ["configprops", "env", "health", "info", "threaddump", "logfile", "jhi-metrics", "prometheus" ]
+    endpoint:
+        health:
+            show-details: when-authorized
+        jhi-metrics:
+            enabled: true
+    info:
+        git:
+            mode: full
+    health:
+        mail:
+            enabled: false # When using the MailService, configure an SMTP server and set this to true
+    metrics:
+        export:
+            # Prometheus is the default metrics backend
+            prometheus:
+                enabled: true
+                step: 60
+        binders:
+            jvm:
+                enabled: true
+            processor:
+                enabled: true
+            uptime:
+                enabled: true
+            logback:
+                enabled: true
+            files:
+                enabled: true
+            integration:
+                enabled: true
+        distribution:
+            percentiles-histogram:
+                all: true
+            percentiles:
+                all: 0, 0.5, 0.75, 0.95, 0.99, 1.0
+        web:
+            server:
+                auto-time-requests: true
+
+spring:
+    application:
+        name: gestionclientes
+    jpa:
+        open-in-view: false
+        properties:
+            hibernate.jdbc.time_zone: UTC
+        hibernate:
+            ddl-auto: none
+            naming:
+                physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+                implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    messages:
+        basename: i18n/messages
+    mvc:
+        favicon:
+            enabled: false
+    thymeleaf:
+        mode: HTML
+    servlet:
+        multipart:
+            max-file-size: 5MB
+
+server:
+    servlet:
+        session:
+            cookie:
+                http-only: true
+
+# Properties to be exposed on the /info management endpoint
+info:
+    # Comma separated list of profiles that will trigger the ribbon to show
+    display-ribbon-on-profiles: "dev"
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+jhipster:
+    async:
+        core-pool-size: 2
+        max-pool-size: 50
+        queue-capacity: 10000
+    # By default CORS is disabled. Uncomment to enable.
+    #cors:
+        #allowed-origins: "*"
+        #allowed-methods: "*"
+        #allowed-headers: "*"
+        #exposed-headers: "Authorization,Link,X-Total-Count"
+        #allow-credentials: true
+        #max-age: 1800
+    mail:
+        from: gestionclientes@localhost
+    swagger:
+        default-include-pattern: /api/.*
+        title: gestionclientes API
+        description: gestionclientes API documentation
+        version: 0.0.1
+        terms-of-service-url:
+        contact-name:
+        contact-url:
+        contact-email:
+        license:
+        license-url:
+
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+application:
+    ms-gestion-cliente-private-rsa-key: "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMD25EgAoSm/42v0yb3UaUcW5mClbVP/z8AjtHVY7/5F5RxB1U5HXYBS+zkioNzCJsbVcDFp8K3iuWzNNBvjuiSeRyCEy02E5aqAWdBv/30B21FSjP1bVirxrkxVb+adh4HE41STNhd8DWRQXep3glp8YCcJh7qOimm8K9EAjhxHAgMBAAECgYAcdo6XvFgJc3+VVgdIFAPvc4ZJ7TziLhKz8dBVmufTpvWzpFZVdJtrKVJbTCtUROM5YxRohYr160KUtPQhxQaYzJXVyVEqP+NPnC63ncILv1v1pcYDAm7JTPURz4EK0UXxYN+NH4LPeGl5k4cKrvaptllXC3gT+cNuRUleGL50AQJBAONzNVRFRzi+pQuD9Tz+PXxG3vd68F99yecSns1km4L40cmESwmHr4DRKRHD1xBdPzlixiElvdY3F//7J14AKgECQQDZL4k6qtiJEoLcgM1In32BTC11AVivABUZKc/jwTBLtspIg8SGRFIFpONTIqnfY8wvwzbHujaB8o3AHnWfJnZHAkEA0jcZs+Avuj9hVSpJz2x/MUxjKMIERY2BvMJV6SkyHbOQWTqfC5jPWTR3S8cAD0zPcV9cFSjHsqPK17itotBuAQJAEYtDfJe8ciYqqAFHk+w+SSmMKn13WnuZOLUl8/HxIsybPoxWXbo7HfWZ32dXbZI0Nk+Ap1WlfY3IYZKUUczblQJBAJIX4j6J0c/z7ip0oj8Yuy9jZBbZZqcAABb2VoPAM4AOTD5yniIyZlcHaamgEWfwD8Gswx2xGVPrTcevnC3/EqI="
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Cambiar domicilio_id por tipo_domicilio_id
+    -->
+    <changeSet id="20190523134700-1" author="jhipster">
+      <renameColumn tableName="domicilio"
+          columnDataType="bigint"
+          newColumnName="tipo_domicilio_id"
+          oldColumnName="domicilio_id"
+        />
+    </changeSet>
+</databaseChangeLog>

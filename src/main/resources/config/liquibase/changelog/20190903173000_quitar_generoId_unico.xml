@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Quitar UNIQUE, FK y columna cliente_completo_id
+    -->
+    <changeSet id="20190903173000-1" author="areta">
+        <dropUniqueConstraint constraintName="ux_cliente_base_cliente_completo_id"
+                              tableName="cliente_base"/>
+    </changeSet>
+</databaseChangeLog>

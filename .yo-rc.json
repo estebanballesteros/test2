@@ -1,0 +1,34 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.octagon.gestionclientes"
+    },
+    "jhipsterVersion": "5.8.2",
+    "applicationType": "microservice",
+    "baseName": "gestionclientes",
+    "packageName": "com.octagon.gestionclientes",
+    "packageFolder": "com/octagon/gestionclientes",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mssql",
+    "prodDatabaseType": "mssql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NDNhMTM2YjdkYzkwZjhhODViOGFjNDEyNzU2YTA4YzQ4NWZjZTY2OTAwYTc3MTM2YTk0NjE4MGNlNDI2MjkyZTdiNzNiOGRiNDQ1MmVkODBiOTBhZjJiNDFhNjhjNTNjMmNiOWRkMDk2N2NlMTRjN2UxMGQ0Y2Q2N2ZiMTcxNDQ=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
